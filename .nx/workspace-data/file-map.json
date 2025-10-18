@@ -1,0 +1,231 @@
+{
+  "version": "6.0",
+  "nxVersion": "21.6.5",
+  "pathMappings": {},
+  "nxJsonPlugins": [
+    {
+      "name": "@nx/cypress/plugin",
+      "options": {
+        "targetName": "e2e",
+        "openTargetName": "open-cypress",
+        "componentTestingTargetName": "component-test",
+        "ciTargetName": "e2e-ci"
+      }
+    },
+    {
+      "name": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    }
+  ],
+  "fileMap": {
+    "projectFileMap": {
+      "lessix-e2e": [
+        {
+          "file": "apps/lessix-e2e/cypress.config.ts",
+          "hash": "14758641582525736975",
+          "deps": [
+            "npm:@nx/cypress",
+            "npm:cypress"
+          ]
+        },
+        {
+          "file": "apps/lessix-e2e/eslint.config.mjs",
+          "hash": "7267301145493616340",
+          "deps": [
+            "npm:eslint-plugin-cypress"
+          ]
+        },
+        {
+          "file": "apps/lessix-e2e/project.json",
+          "hash": "5820446866136370081"
+        },
+        {
+          "file": "apps/lessix-e2e/src/e2e/app.cy.ts",
+          "hash": "6995959701211536116"
+        },
+        {
+          "file": "apps/lessix-e2e/src/fixtures/example.json",
+          "hash": "11785586596216172004"
+        },
+        {
+          "file": "apps/lessix-e2e/src/support/app.po.ts",
+          "hash": "11157016311132186162"
+        },
+        {
+          "file": "apps/lessix-e2e/src/support/commands.ts",
+          "hash": "6408592624158157338"
+        },
+        {
+          "file": "apps/lessix-e2e/src/support/e2e.ts",
+          "hash": "1054106023200826784"
+        },
+        {
+          "file": "apps/lessix-e2e/tsconfig.json",
+          "hash": "1675597566224610474"
+        }
+      ],
+      "lessix": [
+        {
+          "file": "apps/lessix/eslint.config.mjs",
+          "hash": "16756400681144203361",
+          "deps": [
+            "npm:@nx/eslint-plugin"
+          ]
+        },
+        {
+          "file": "apps/lessix/jest.config.ts",
+          "hash": "11709046208956769218"
+        },
+        {
+          "file": "apps/lessix/project.json",
+          "hash": "7581915172131584978"
+        },
+        {
+          "file": "apps/lessix/public/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "apps/lessix/src/app/app.config.ts",
+          "hash": "4515289115773032281",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router"
+          ]
+        },
+        {
+          "file": "apps/lessix/src/app/app.html",
+          "hash": "11987652264972370457"
+        },
+        {
+          "file": "apps/lessix/src/app/app.routes.ts",
+          "hash": "6185150965714414910",
+          "deps": [
+            "npm:@angular/router"
+          ]
+        },
+        {
+          "file": "apps/lessix/src/app/app.scss",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/lessix/src/app/app.spec.ts",
+          "hash": "4191876171985223210",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/lessix/src/app/app.ts",
+          "hash": "7107451623727686027",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router"
+          ]
+        },
+        {
+          "file": "apps/lessix/src/app/nx-welcome.ts",
+          "hash": "7566883382441046756",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common"
+          ]
+        },
+        {
+          "file": "apps/lessix/src/index.html",
+          "hash": "2295963627169349682"
+        },
+        {
+          "file": "apps/lessix/src/main.ts",
+          "hash": "3314327030169821486",
+          "deps": [
+            "npm:@angular/platform-browser"
+          ]
+        },
+        {
+          "file": "apps/lessix/src/styles.scss",
+          "hash": "5195668842064076916"
+        },
+        {
+          "file": "apps/lessix/src/test-setup.ts",
+          "hash": "1917999429567095215",
+          "deps": [
+            "npm:jest-preset-angular"
+          ]
+        },
+        {
+          "file": "apps/lessix/tsconfig.app.json",
+          "hash": "10974451356376189872"
+        },
+        {
+          "file": "apps/lessix/tsconfig.json",
+          "hash": "4663124578817442910"
+        },
+        {
+          "file": "apps/lessix/tsconfig.spec.json",
+          "hash": "5331518322626158299"
+        }
+      ]
+    },
+    "nonProjectFiles": [
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "17559216753634855455"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "5407418692668764289"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "4637156562308165301"
+      },
+      {
+        "file": "AGENTS.md",
+        "hash": "5706578983456977230"
+      },
+      {
+        "file": "README.md",
+        "hash": "5836444141701565784"
+      },
+      {
+        "file": "eslint.config.mjs",
+        "hash": "10770449096712831357"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "6870352021923392442"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "9430166341120122740"
+      },
+      {
+        "file": "nx.json",
+        "hash": "2349397831970412486"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "545498286812039734"
+      },
+      {
+        "file": "package.json",
+        "hash": "16880382343919768649"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "16936441711144470533"
+      }
+    ]
+  },
+  "externalNodesHash": "17210152075180745519"
+}

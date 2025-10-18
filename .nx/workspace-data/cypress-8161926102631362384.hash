@@ -1,0 +1,176 @@
+{
+  "3507322433631856972": {
+    "targets": {
+      "e2e": {
+        "command": "cypress run",
+        "options": {
+          "cwd": "apps/lessix-e2e",
+          "env": {
+            "TS_NODE_COMPILER_OPTIONS": "{\"customConditions\":null}"
+          }
+        },
+        "cache": true,
+        "inputs": [
+          "default",
+          "^production",
+          {
+            "externalDependencies": [
+              "cypress"
+            ]
+          }
+        ],
+        "outputs": [
+          "{workspaceRoot}/dist/cypress/apps/lessix-e2e/videos",
+          "{workspaceRoot}/dist/cypress/apps/lessix-e2e/screenshots"
+        ],
+        "metadata": {
+          "technologies": [
+            "cypress"
+          ],
+          "description": "Runs Cypress Tests",
+          "help": {
+            "command": "npx cypress run --help",
+            "example": {
+              "args": [
+                "--dev",
+                "--headed"
+              ]
+            }
+          }
+        },
+        "dependsOn": [
+          {
+            "projects": [
+              "lessix"
+            ],
+            "target": "serve"
+          }
+        ],
+        "configurations": {
+          "production": {
+            "command": "cypress run --env webServerCommand=\"npx nx run lessix:serve-static\""
+          }
+        }
+      },
+      "e2e-ci--src/e2e/app.cy.ts": {
+        "outputs": [
+          "{workspaceRoot}\\dist\\cypress\\apps\\lessix-e2e\\videos\\src-e2e-app-cy-ts",
+          "{workspaceRoot}\\dist\\cypress\\apps\\lessix-e2e\\screenshots\\src-e2e-app-cy-ts"
+        ],
+        "inputs": [
+          "default",
+          "^production",
+          {
+            "externalDependencies": [
+              "cypress"
+            ]
+          }
+        ],
+        "cache": true,
+        "command": "cypress run --env webServerCommand=\"npx nx run lessix:serve-static\" --spec src/e2e/app.cy.ts --config=\"{\\\"baseUrl\\\":\\\"http://localhost:4200\\\",\\\"e2e\\\":{\\\"videosFolder\\\":\\\"..\\\\\\\\..\\\\\\\\dist\\\\\\\\cypress\\\\\\\\apps\\\\\\\\lessix-e2e\\\\\\\\videos\\\\\\\\src-e2e-app-cy-ts\\\",\\\"screenshotsFolder\\\":\\\"..\\\\\\\\..\\\\\\\\dist\\\\\\\\cypress\\\\\\\\apps\\\\\\\\lessix-e2e\\\\\\\\screenshots\\\\\\\\src-e2e-app-cy-ts\\\"}}\"",
+        "options": {
+          "cwd": "apps/lessix-e2e",
+          "env": {
+            "TS_NODE_COMPILER_OPTIONS": "{\"customConditions\":null}"
+          }
+        },
+        "metadata": {
+          "technologies": [
+            "cypress"
+          ],
+          "description": "Runs Cypress Tests in src/e2e/app.cy.ts in CI",
+          "help": {
+            "command": "npx cypress run --help",
+            "example": {
+              "args": [
+                "--dev",
+                "--headed"
+              ]
+            }
+          }
+        },
+        "dependsOn": [
+          {
+            "target": "serve-static",
+            "projects": [
+              "lessix"
+            ]
+          }
+        ]
+      },
+      "e2e-ci": {
+        "executor": "nx:noop",
+        "cache": true,
+        "inputs": [
+          "default",
+          "^production",
+          {
+            "externalDependencies": [
+              "cypress"
+            ]
+          }
+        ],
+        "outputs": [
+          "{workspaceRoot}/dist/cypress/apps/lessix-e2e/videos",
+          "{workspaceRoot}/dist/cypress/apps/lessix-e2e/screenshots"
+        ],
+        "dependsOn": [
+          {
+            "target": "e2e-ci--src/e2e/app.cy.ts",
+            "projects": "self",
+            "params": "forward",
+            "options": "forward"
+          }
+        ],
+        "metadata": {
+          "technologies": [
+            "cypress"
+          ],
+          "description": "Runs Cypress Tests in CI",
+          "nonAtomizedTarget": "e2e",
+          "help": {
+            "command": "npx cypress run --help",
+            "example": {
+              "args": [
+                "--dev",
+                "--headed"
+              ]
+            }
+          }
+        }
+      },
+      "open-cypress": {
+        "command": "cypress open",
+        "options": {
+          "cwd": "apps/lessix-e2e",
+          "env": {
+            "TS_NODE_COMPILER_OPTIONS": "{\"customConditions\":null}"
+          }
+        },
+        "metadata": {
+          "technologies": [
+            "cypress"
+          ],
+          "description": "Opens Cypress",
+          "help": {
+            "command": "npx cypress open --help",
+            "example": {
+              "args": [
+                "--dev",
+                "--e2e"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "targetGroups": {
+        "E2E (CI)": [
+          "e2e-ci--src/e2e/app.cy.ts",
+          "e2e-ci"
+        ]
+      }
+    }
+  }
+}

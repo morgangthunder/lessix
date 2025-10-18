@@ -1,0 +1,662 @@
+{
+  "apps/lessix-e2e": {
+    "root": [
+      "apps/lessix-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "apps/lessix-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "metadata.targetGroups": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "metadata.targetGroups.E2E (CI)": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "metadata.targetGroups.E2E (CI).0": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "metadata.targetGroups.E2E (CI).1": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e.options": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e.cache": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e.inputs": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e.outputs": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e.metadata": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e.dependsOn": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e.configurations": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e.executor": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e.options.cwd": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e.options.env": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e.options.command": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e.configurations.production": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e.configurations.production.command": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e.metadata.technologies": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e.metadata.technologies.0": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e.metadata.description": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e.metadata.help": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e.metadata.help.command": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e.metadata.help.example": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci--src/e2e/app.cy.ts": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci--src/e2e/app.cy.ts.outputs": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci--src/e2e/app.cy.ts.inputs": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci--src/e2e/app.cy.ts.cache": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci--src/e2e/app.cy.ts.options": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci--src/e2e/app.cy.ts.metadata": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci--src/e2e/app.cy.ts.dependsOn": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci--src/e2e/app.cy.ts.executor": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci--src/e2e/app.cy.ts.options.cwd": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci--src/e2e/app.cy.ts.options.env": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci--src/e2e/app.cy.ts.options.command": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci--src/e2e/app.cy.ts.metadata.technologies": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci--src/e2e/app.cy.ts.metadata.technologies.0": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci--src/e2e/app.cy.ts.metadata.description": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci--src/e2e/app.cy.ts.metadata.help": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci--src/e2e/app.cy.ts.metadata.help.command": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci--src/e2e/app.cy.ts.metadata.help.example": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci.executor": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci.cache": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci.inputs": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci.outputs": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci.dependsOn": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci.metadata": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci.metadata.technologies": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci.metadata.technologies.0": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci.metadata.description": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci.metadata.nonAtomizedTarget": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci.metadata.help": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci.metadata.help.command": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.e2e-ci.metadata.help.example": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.open-cypress": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.open-cypress.options": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.open-cypress.metadata": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.open-cypress.executor": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.open-cypress.options.cwd": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.open-cypress.options.env": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.open-cypress.options.command": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.open-cypress.metadata.technologies": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.open-cypress.metadata.technologies.0": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.open-cypress.metadata.description": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.open-cypress.metadata.help": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.open-cypress.metadata.help.command": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.open-cypress.metadata.help.example": [
+      "apps/lessix-e2e/cypress.config.ts",
+      "@nx/cypress/plugin"
+    ],
+    "targets.lint": [
+      "apps/lessix-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "apps/lessix-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "apps/lessix-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs": [
+      "apps/lessix-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "apps/lessix-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "apps/lessix-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "apps/lessix-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "apps/lessix-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "apps/lessix-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies": [
+      "apps/lessix-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "apps/lessix-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "apps/lessix-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "apps/lessix-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "apps/lessix-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "apps/lessix-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "apps/lessix-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "apps/lessix-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "apps/lessix-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "// targets": [
+      "apps/lessix-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "apps/lessix-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "implicitDependencies": [
+      "apps/lessix-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "implicitDependencies.lessix": [
+      "apps/lessix-e2e/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "apps/lessix": {
+    "root": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "apps/lessix/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "prefix": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.defaultConfiguration": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.browser": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.polyfills": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.inlineStyleLanguage": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.styles": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production.budgets": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production.outputHashing": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development.optimization": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development.extractLicenses": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development.sourceMap": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.continuous": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.defaultConfiguration": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production.buildTarget": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.development": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.development.buildTarget": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.extract-i18n": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.extract-i18n.executor": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.extract-i18n.options": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.extract-i18n.options.buildTarget": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.tsConfig": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve-static": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve-static.continuous": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve-static.executor": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve-static.options": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve-static.options.buildTarget": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve-static.options.port": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve-static.options.staticFilePath": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve-static.options.spa": [
+      "apps/lessix/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.dependsOn": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.configurations.ci": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.configurations.ci.ci": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.configurations.ci.codeCoverage": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ]
+  }
+}

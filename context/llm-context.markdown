@@ -1,30 +1,149 @@
-# AI Lessons App MVP Context
+# Context for AI Lessons App Development
 
 ## Overview
-Build an AI lessons app (MVP) with an Ionic/Angular frontend, NestJS backend, PostgreSQL (AWS RDS with Row-Level Security for multi-tenancy via `tenant_id`), Amazon S3 for asset storage, xAI Grok API for AI-driven chat, content processing, and coding assistance, and n8n for workflow automation. Use an Nx monorepo, Docker/Coolify for local development, and AWS for production. Prioritize simplicity for a non-experienced coder, ensuring robust testing and validation.
+You are assisting in building an AI lessons app with a focus on a minimal viable product (MVP) skeleton that proves end-to-end functionality. The app is a cross-platform, educational platform with a Netflix-style interface for students to take lessons, incorporating Pixi.js interactions and AI chat powered by xAI’s Grok API, and interfaces for lesson-builders and interaction-builders to create content. The goal is to create a modular, JSON-centric system that tracks Grok token usage, supports commissions for creators, processes content via n8n workflows, and supports enterprise clients with secure, private instances using multi-tenancy and Angular Elements-based web components. A public instance (`PUBLIC_MODE=true`) shows all approved lessons from all creators. All lessons, interaction types, and n8n workflows require an approval process with submission statuses (`pending`, `approved`, `rejected`). The app must work locally using Docker Desktop and Coolify, deploying from GitHub, with a focus on separate component development and cross-platform deployment (browser, iOS via TestFlight, Android) using Ionic with Angular. The cloud provider is AWS, with Amazon Cognito for authentication, Amazon S3 for file storage, and PostgreSQL with Row-Level Security (RLS) for multi-tenancy.
 
-## Key Requirements
-- **Frontend**: Ionic/Angular app with a Netflix-style Lesson Browser (card-based grid), Lesson-Builder (form with JSON editor, submit-for-approval button, status display: `pending/approved/rejected`), and Lesson View (Pixi.js for interactions, Grok API chat). Support Angular Elements to package the app as a web component (JavaScript blob) for embedding in external websites, configurable via environment variables (e.g., `ACCOUNT_ID` to filter lessons by account, `TENANT_ID` for tenant-specific data, `PUBLIC_MODE=true` to show all approved lessons from all creators).
-- **Backend**: NestJS with REST APIs (e.g., `POST /lessons/submit` for lesson submission with `tenant_id`, `account_id`, and `status=pending`). Support querying all approved lessons across accounts/tenants for a public instance when `PUBLIC_MODE=true`. Use PostgreSQL with RLS for tenant isolation, and Socket.io for real-time notifications (e.g., approval status updates).
-- **Authentication**: Default to AWS Cognito for user authentication (JWT-based). Support external authentication (e.g., company SSO via OAuth2, SAML, or custom JWTs) by accepting external tokens, validating them, and extracting `tenant_id` and `account_id` for access control. Allow toggling via environment variable (e.g., `AUTH_PROVIDER=cognito|external|none`). For public instances (`PUBLIC_MODE=true`), support unauthenticated/guest access to approved lessons.
-- **Approval Process**: All lessons, interaction types, and n8n workflows require approval (`pending/approved/rejected`). Only approved content is accessible, enforced via backend APIs and RLS, including in public mode.
-- **Multi-Tenancy**: Isolate data by `tenant_id` using PostgreSQL RLS. Environment variables (e.g., `TENANT_ID`, `ACCOUNT_ID`, `PUBLIC_MODE`) configure app instances for specific tenants, accounts, or public access.
-- **Storage**: Use Amazon S3 (mocked with MinIO locally) for lesson assets (e.g., images, JSON).
-- **AI Integration**: Use xAI Grok API for AI chat, content generation, and coding assistance. Track token usage for cost monitoring.
-- **Workflows**: Use n8n for approval workflows, triggered by lesson submissions and status changes.
-- **Payments**: Implement Stripe Connect for creator commissions, tied to approved lessons.
-- **Testing**: Use Jest for frontend unit tests, Mocha/Chai for backend unit tests, and Cypress for E2E browser tests. Validate JSON schemas for lesson data and API payloads.
-- **Development**: Use Nx monorepo with esbuild, Sass, no SSR/SSG, Jest, Cursor/GitHub Copilot AI agents, and GitHub Actions for CI. Use Docker/Coolify for local dev and AWS for production.
-- **Simplicity**: Prioritize clear code, minimal setup complexity, and Cursor-generated code/tests for a non-experienced coder.
+## App Features
 
-## Critical Analysis
-- Critically analyze all requests to ensure alignment with the stack and requirements.
-- Flag issues (e.g., skipping approval logic, missing tenant isolation) and suggest alternatives.
-- Ensure environment variables (e.g., `ACCOUNT_ID`, `TENANT_ID`, `PUBLIC_MODE`, `AUTH_PROVIDER`) are used to configure Angular Elements and authentication for enterprise use cases (e.g., embedding in external sites, using company SSO) and public instances (showing all approved lessons).
+### User Profiles and Authentication
+- **Account Types**: Students (take lessons), lesson-builders (create lessons), interaction-builders (create Pixi.js interaction types and n8n workflows). Additional admin role per tenant for approving content.
+- **Authentication**: Default to Amazon Cognito with JWT-based auth and role-based access control (RBAC) to enforce permissions (e.g., lesson-builders can’t access others’ earnings, admins approve content). Support external authentication (e.g., company SSO via OAuth2, SAML, or custom JWTs) via `AUTH_PROVIDER=external`, validating tokens and extracting `tenant_id` and `account_id`. For public instances (`PUBLIC_MODE=true`), support guest access with `AUTH_PROVIDER=none`.
+- **Profile Pages**: Show usage metrics, commission earnings, and submission statuses (e.g., pending lessons/workflows) for builders, tenant-isolated.
+- **Token Tracking**: Track Grok API usage (e.g., AI teacher chat, content processing, coding assistance) per user, with warnings for approaching limits via WebSockets or in-app notifications.
 
-## Notes
-- Full context is in `/context/llm-context.md`.
-- Use the React demo repo (https://github.com/morgangthunder/BloomixDemo, e.g., "card-based lesson grid, JSON editor form") as a UI reference, adapted to Ionic/Angular.
-- For Angular Elements, ensure the app can run as a standalone web component with minimal dependencies, configurable via environment variables.
-- For public instances, use `PUBLIC_MODE=true` to show all approved lessons, with `AUTH_PROVIDER=none` for guest access or custom auth.
-- For external authentication, design APIs to accept and validate external tokens, mapping to `tenant_id` and `account_id`.
+### Lesson Experience
+- **Interface**: Netflix-style Lesson Browser for students to view only approved lessons, configurable via environment variables (`ACCOUNT_ID`, `TENANT_ID`, `PUBLIC_MODE`). In public mode (`PUBLIC_MODE=true`), show all approved lessons from all creators.
+- **Lesson Structure**: JSON files defining stages, substages, source data links, processed data, Grok prompts for AI teachers, and interaction type configurations.
+- **Interactions**: Include Pixi.js interactions (e.g., drag-and-drop games) and real-time AI chat via WebSockets, powered by Grok API.
+- **Student Actions**: Support interactions like raise hand, pause, with real-time updates.
+
+### Lesson-Builder Interface
+- **Functionality**: Interface to structure lessons as JSON, including stages, substages, data links, Grok prompts for AI teachers, and approved interaction type selections.
+- **Workflow Integration**: Supports selecting approved n8n workflows to process source content.
+- **Approval**: Includes a “Submit for Approval” button, with status display (`pending`, `approved`, `rejected`).
+- **Payments**: Possible payment for premium interaction types.
+
+### Interaction-Builder Interface
+- **Functionality**: Interface to create Pixi.js interaction types, saved as JSON (defining inputs, events, rendering configs).
+- **Coding Support**: Code/preview split-view with Grok API assistance for Pixi.js interactions.
+- **Workflows**: For MVP, the app owner creates n8n workflows offline (e.g., localhost:5678) and uploads JSON via a simple file input for approval.
+- **Approval**: Interactions and workflows require admin approval, with status display.
+- **Sandboxing**: Interactions run in a sandboxed Pixi.js environment, with defined input data structures and event triggers for lesson-builders.
+
+### Content Processing
+- **Uploads**: Interface for uploading source content (e.g., text, PDFs, images) to S3, submitted for approval.
+- **Workflows**: Approved n8n workflows process content (e.g., extract text, summarize with Grok API, output JSON), storing results in S3 or Pinecone for semantic search.
+- **MVP**: Initial n8n workflows created by the app owner, submitted for approval, stored as JSON.
+
+### Monetization
+- **Commissions**: Lesson-builders and interaction-builders earn based on usage of approved lessons/interactions/workflows, tracked via database metrics.
+- **Payouts**: Aggregated for payouts via Stripe Connect, displayed in earnings dashboards on profile pages.
+
+### Token Tracking
+- **Functionality**: Tracks Grok API usage (e.g., AI chat, content processing, coding assistance) per user, stored in DB with tenant isolation.
+- **Notifications**: Backend middleware logs usage, pushes warnings via WebSockets/in-app notifications when nearing limits.
+
+### Enterprise Features
+- **Private Instances**: Support secure, private instances with multi-tenancy to isolate data (e.g., lessons, content, metrics) per client via `tenant_id`.
+- **Angular Elements**: Package frontend as Angular Elements-based web components (JavaScript blob) for embedding in external websites (e.g., `<lesson-viewer tenant="client-abc">`), configurable via environment variables (`ACCOUNT_ID`, `TENANT_ID`, `PUBLIC_MODE`). Show only approved, tenant-specific content (or all approved content in public mode).
+- **External Authentication**: Support company SSO (OAuth2, SAML, custom JWTs) via `AUTH_PROVIDER=external`, validating tokens and mapping to `tenant_id` and `account_id`.
+- **Compliance**: Ensure GDPR/CCPA compliance through data isolation and secure APIs.
+
+### Approval Process
+- **Requirement**: All lessons, interaction types, and n8n workflows require admin approval before use (`pending`, `approved`, `rejected`).
+- **Management**: Tenant-specific admins (via Cognito groups) review content. For MVP, app owner manually approves; post-MVP, add admin UI.
+- **Enforcement**: Only approved content is accessible, enforced via backend APIs and RLS.
+
+## App Component Structure
+
+### Frontend
+- **Framework**: Ionic with Angular single-page app for browser, iOS (TestFlight), Android (Capacitor). Convertible to Angular Elements for enterprise embedding.
+- **Pages**: Login, Profile (earnings, usage, submission statuses), Lesson Browser (Netflix-style, approved lessons), Lesson View (Pixi.js + Grok AI chat), Lesson-Builder (JSON editor, interaction selection, submit button), Interaction-Builder (code/preview, n8n workflow upload, submit button), Admin (post-MVP).
+- **Integrations**: Pixi.js for interactions, Socket.io for real-time AI chat and approval notifications.
+
+### Backend
+- **Framework**: NestJS API server.
+- **Endpoints**: User management, lesson CRUD (with submit/approve), interaction type CRUD (with submit/approve), workflow CRUD (with submit/approve), content processing triggers, Grok token tracking, commission calculations, tenant-specific data access, public mode queries (all approved lessons when `PUBLIC_MODE=true`).
+- **Webhooks**: For n8n integration (e.g., trigger approved workflows, receive processed data).
+
+### Database
+- **Type**: PostgreSQL with JSONB for lessons, interaction types, n8n workflows, and Grok prompts. Hosted on AWS RDS.
+- **Multi-Tenancy**: Row-Level Security (RLS) with `tenant_id` for data isolation. Public mode bypasses tenant filtering for approved content.
+- **Tables**: `users` (with `tenant_id`, `role`), `lessons` (JSONB, `status` ENUM: `pending/approved/rejected`), `interaction_types` (JSONB, `status`), `interaction_workflows` (JSONB for n8n, `status`), `usages` (metrics/commissions).
+
+### Vector Database
+- **Type**: Pinecone for indexing processed content and semantic search, tenant-isolated.
+
+### File Storage
+- **Type**: Amazon S3 with tenant-specific buckets/prefixes for source files and processed outputs. Mocked with MinIO locally.
+
+### Workflow Automation
+- **Tool**: n8n for content processing and custom workflows, stored as JSON, submitted for approval, triggered via API/webhooks.
+
+### Real-Time Features
+- **Tool**: Socket.io for Grok-powered AI chat, lesson interactions, token warnings, and approval status updates, with tenant-namespaced rooms. Hosted via AWS API Gateway WebSockets.
+
+### Authentication
+- **Default**: Amazon Cognito with JWT-based auth, RBAC (e.g., tenant-admin group), tenant claims.
+- **External**: Support OAuth2, SAML, or custom JWTs via `AUTH_PROVIDER=external`. Guest access via `AUTH_PROVIDER=none` for public mode.
+
+### Payment Integration
+- **Tool**: Stripe Connect for commission payouts and potential interaction type payments.
+
+### Caching/Queuing
+- **Tool**: Redis for caching lesson JSONs and queuing tasks (e.g., commissions, approval workflows). Tenant-aware caching. Hosted on AWS ElastiCache.
+
+### Monitoring/Logging
+- **Tools**: Sentry for errors, Prometheus/Grafana for metrics, AWS CloudWatch for tenant-specific logs.
+
+### Testing
+- **Tools**: Jest for frontend unit tests, Mocha/Chai for backend unit tests, Cypress for E2E browser tests. Validate JSON schemas, tenant isolation, approval flows.
+
+## Technical Setup
+- **Development Environment**: Local development with Docker Desktop and Coolify for deployment from GitHub. Production on AWS (ECS for NestJS, RDS for PostgreSQL).
+- **Monorepo**: Nx with folders: `/frontend` (Ionic/Angular, Angular Elements), `/backend` (NestJS), `/n8n` (workflows), `/shared` (types, schemas).
+- **Docker Compose**: Services for frontend (port 8100), backend (port 3000), PostgreSQL, n8n (port 5678), Pinecone (if local), Redis, MinIO. Environment variables: `ACCOUNT_ID`, `TENANT_ID`, `PUBLIC_MODE`, `AUTH_PROVIDER`.
+- **Cross-Platform**: Ionic with Capacitor for browser, iOS (Xcode, TestFlight), Android (Android Studio). Angular Elements for enterprise embedding.
+- **AI Assistance**: xAI Grok API (via https://x.ai/api) for AI teacher chat, content processing, and code generation. Mock locally with static responses for MVP.
+- **Security**: Validate n8n workflows (restrict nodes, enforce schemas). Sanitize uploads, secure APIs with Cognito/external JWTs and CORS for enterprise domains. Use AWS IAM for S3, AWS Secrets Manager for tenant-specific Grok API keys.
+
+## MVP Goals
+- **Objective**: Prove end-to-end flows:
+  - **Student**: Browse mock approved lesson, view lesson with Pixi.js interaction (e.g., draggable sprite) and mock Grok-powered AI chat.
+  - **Lesson-Builder**: Create lesson JSON with stages, data links, interaction type, optional n8n workflow, Grok prompts, submit for approval.
+  - **Interaction-Builder**: Create interaction type JSON (Pixi.js config), upload app owner’s n8n workflow JSON, submit for approval.
+  - **Content Processing**: Upload mock file → Submit for approval → Trigger n8n webhook with approved workflow → Return processed JSON (using mock Grok API).
+  - **Enterprise Prep**: Basic multi-tenancy (`tenant_id`), Angular Element proof-of-concept for lesson viewing with Cognito/external auth, public mode for all approved lessons.
+- **Deliverables**:
+  - Lesson JSON rendering with Pixi.js interaction and Grok prompts (approved only).
+  - Interaction type JSON with mock approved n8n workflow feeding Pixi.js.
+  - n8n flow triggered by webhook, returning mock processed data.
+  - Basic auth (mock Cognito/external JWTs with `tenant_id`, `account_id`, admin role), Grok token tracking (console logs), commission metrics (mock DB queries), tenant-aware/public queries.
+  - Cross-platform: Browser and iOS TestFlight, Angular Elements proof-of-concept.
+- **Testing**: Unit tests (Jest, Mocha/Chai) for JSON parsing, API endpoints, workflow validation, tenant isolation, approval status. E2E tests (Cypress) for login → lesson submission → approval → interaction flow.
+- **Modularity**: Develop components separately (frontend with mock API, backend with Postman). Use MSW for frontend API mocking.
+- **Deployment**: Coolify deploys from GitHub to local Docker. Ensure services communicate (frontend → API → n8n).
+
+## Constraints
+- **Non-Experienced Coder**: Prioritize simple, AI-generated code with clear structure. Use Ionic/Angular and NestJS for beginner-friendly conventions.
+- **JSON-Centric**: Lessons, interaction types, n8n workflows, and Grok prompts are JSON, validated with schemas.
+- **Local-First**: All services run in Docker locally, movable to AWS.
+- **Cross-Platform**: Ionic for browser and native builds. Angular Elements for enterprise embedding. TestFlight for iOS.
+- **Security**: Validate user inputs (uploads, workflow JSON). Limit n8n workflows to safe nodes. Use tenant-aware RLS. Ensure only approved content is accessible.
+- **Performance**: Lazy-load lessons, cache in Redis, offload heavy tasks (e.g., Grok API calls) to backend. Plan for low-latency STT/TTS (future) with streaming WebSockets.
+
+## Critical Analysis Requirement
+- **Instruction**: Critically evaluate all requests before implementation. If a request may cause issues (e.g., performance, security, compatibility, scalability, maintainability) or deviates from the app’s architecture, goals, or constraints:
+  - Identify issues (e.g., “Overloads n8n with complex workflows” or “Conflicts with Ionic mobile rendering”).
+  - Explain why, referencing the stack, MVP goals, or constraints.
+  - Suggest alternatives aligning with Ionic/Angular, Angular Elements, NestJS, PostgreSQL, n8n, Pixi.js, Redis, AWS Cognito, S3, and Grok API, prioritizing simplicity, security, approval processes, and cross-platform compatibility.
+  - If sound, confirm fit and implement with tests and JSON-centric design.
+
+## Specific Notes
+- **n8n Workflows**: For MVP, app owner creates workflows offline (localhost:5678), uploads JSON via Interaction-Builder (file input) for approval. Stored in PostgreSQL (JSONB) with fields: `id`, `interaction_type_id`, `workflow_json`, `created_by`, `input_format`, `output_format`, `tenant_id`, `status` (`pending/approved/rejected`). Triggered via n8n API/webhooks if approved, validated for security.
+- **Pixi.js Interactions**: Run in sandboxed environment. JSON defines inputs (e.g., n8n-processed data) and events (e.g., drag end triggers Grok chat). Tenant-specific, approval-required.
+- **AI Teacher Prompts**: Stored in lesson JSON (JSONB), managed via Lesson-Builder with dedicated prompt section. Require approval.
+- **LLM Integration**: Use xAI Grok API (https://x.ai/api) for AI chat, content processing, coding assistance. Mock locally with static responses. Store tenant-specific API keys in AWS Secrets Manager.
+- **Public Instance**: Use `PUBLIC_MODE=true` to show all approved lessons from all creators, with `AUTH_PROVIDER=none` for guest access or custom auth.
+- **Angular Elements**: Package frontend as web components for embedding, configurable via `ACCOUNT_ID`, `TENANT_ID`, `PUBLIC_MODE`.
+- **Database**: PostgreSQL for relational data (users, lessons, workflows, metrics, prompts). JSONB for flexibility. RLS for multi-tenancy.
